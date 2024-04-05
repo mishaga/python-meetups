@@ -6,13 +6,13 @@ def get_number() -> int:
         exit(1)
 
     if number <= 0:
-        print('The number must be greater that zero')
+        print('The number must be greater than zero')
         exit(1)
-
     return number
 
 
-def find_all(value: int, nominals: tuple[int, ...], coins: list[int], solutions: list[list[int]]):
+def find_all(value: int, nominals: tuple[int, ...], coins: list[int],
+             solutions: list[list[int]]):
     if value == 0:
         solutions.append(coins)
         return
@@ -52,12 +52,12 @@ def find_shortest(solutions):
 
 
 def main():
-    number = get_number()
+    number = 11
     solutions = []
 
     find_all(
         value=number,
-        nominals=(9, 6, 5, 3, 1),
+        nominals=(9, 6, 5, 1),
         coins=[],
         solutions=solutions,
     )
