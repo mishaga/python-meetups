@@ -67,5 +67,8 @@ def main():
     print(shortest_idx, solutions[shortest_idx])
 
 
+# [START run]
 if __name__ == '__main__':
     main()
+
+# [END run]
