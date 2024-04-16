@@ -29,10 +29,11 @@ def tree_to_list(root: TreeNode | None) -> list[TreeNode]:
     while stack:
         node = stack.pop()
         if node:
-            stack.append(node.right)
-            stack.append(node.left)
+            if node.right:
+                stack.append(node.right)
+            if node.left:
+                stack.append(node.left)
             lst.append(node.data)
-
     return lst
 
 
@@ -41,8 +42,10 @@ def tree_traversal_gen(root: TreeNode | None) -> Generator[str, None, None]:
     while len(stack) > 0:
         node = stack.pop()
         if node:
-            stack.append(node.right)
-            stack.append(node.left)
+            if node.right:
+                stack.append(node.right)
+            if node.left:
+                stack.append(node.left)
             yield node.data
 
 
@@ -52,8 +55,10 @@ def recursive_with_tco(stack: list[TreeNode]) -> list[str]:
 
     node = stack.pop()
     if node:
-        stack.append(node.right)
-        stack.append(node.left)
+        if node.right:
+            stack.append(node.right)
+        if node.left:
+            stack.append(node.left)
         return [node.data] + recursive_with_tco(stack)
 
     return recursive_with_tco(stack)
@@ -69,7 +74,7 @@ def recursive_with_tco_optimised(stack: list[TreeNode]) -> list[str]:
     if node.left:
         stack.append(node.left)
 
-    return [node.data] + recursive_with_tco(stack)
+    return [node.data] + recursive_with_tco_optimised(stack)
 
 
 def recursive_with_tco_gen(stack: list[TreeNode]) -> Generator[str, None, None]:
