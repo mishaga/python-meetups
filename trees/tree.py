@@ -1,12 +1,6 @@
-from typing import Any, Self, Generator
+from typing import Generator
 
-
-class TreeNode:
-
-    def __init__(self, data: Any, left: Self | None = None, right: Self | None = None):
-        self.data = data
-        self.left = left
-        self.right = right
+from trees.tree_class import TreeNode
 
 
 def get_tree() -> TreeNode:
